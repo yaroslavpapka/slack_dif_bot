@@ -1,21 +1,68 @@
-# SlackBot
+# 🤖 SlackBot DiffBot
 
-**TODO: Add description**
+Elixir application that compares users between **Slack** and **Microsoft** systems, highlighting discrepancies in user presence and name mismatches. It uses the Slack Web API and Microsoft Graph API, with results sent as a summary message.
 
-## Installation
+---
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `slack_bot` to your list of dependencies in `mix.exs`:
+## ✨ Features
 
-```elixir
-def deps do
-  [
-    {:slack_bot, "~> 0.1.0"}
-  ]
-end
-```
+- Fetches users from both Slack and Microsoft
+- Detects users present in one system but not the other
+- Finds users present in both systems but with different names
+- Sends a formatted report via the `Messenger` module
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/slack_bot>.
+---
 
+## 🧱 Project Structure
+
+- `SlackBot.Client` – Fetches real users from Slack using Slack API
+- `SlackBot.MicrosoftClient` – Retrieves users from Microsoft (implementation assumed)
+- `SlackBot.Messenger` – Sends comparison results (e.g. to Slack or elsewhere)
+- `SlackBot.DiffBot` – The main logic for comparing users and formatting the output
+
+---
+
+## 🚀 How to Run
+
+1. **Install dependencies**:
+
+    ```bash
+    mix deps.get
+    ```
+
+2. **Set environment variables**:
+
+    ```bash
+    export SLACK_BOT_TOKEN="xoxb-..."     # Your Slack bot token
+    export MICROSOFT_ACCESS_TOKEN="..."   # Your Microsoft Graph API token
+    ```
+
+3. **Start the application**:
+
+    ```bash
+    iex -S mix
+    ```
+
+4. **Run the comparison task**:
+
+    ```elixir
+    SlackBot.DiffBot.run()
+    ```
+
+---
+
+## 🧪 Example Output
+
+🔵 In Microsoft, but not in Slack:
+
+    Jane Doe jane.doe@example.com
+
+🔵 In Slack, but not in Microsoft:
+
+    John Smith john.smith@example.com
+
+🔵 Present in both, but with different names:
+
+    Email: alex@example.com
+    Slack: Alexey Petrov
+    Microsoft: Alexander Petrov
