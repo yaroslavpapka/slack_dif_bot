@@ -32,9 +32,22 @@ Elixir application that compares users between **Slack** and **Microsoft** syste
 
 2. **Set environment variables**:
 
+    Option 1: Using a `.env` file (recommended)
+
+    ```
+    MICROSOFT_TENANT_ID=""
+    MICROSOFT_CLIENT_ID=""
+    MICROSOFT_CLIENT_SECRET=""
+    SLACK_BOT_TOKEN=""
+    ```
+
+    Option 2: Using `export` command in the terminal
+
     ```bash
-    export SLACK_BOT_TOKEN="xoxb-..."     # Your Slack bot token
-    export MICROSOFT_ACCESS_TOKEN="..."   # Your Microsoft Graph API token
+    export MICROSOFT_TENANT_ID=""     
+    export MICROSOFT_CLIENT_ID="..."   
+    export MICROSOFT_CLIENT_SECRET="..."   
+    export SLACK_BOT_TOKEN="..."   
     ```
 
 3. **Start the application**:
