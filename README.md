@@ -21,15 +21,7 @@ Elixir application that compares users between **Slack** and **Microsoft** syste
 - `SlackBot.DiffBot` – The main logic for comparing users and formatting the output
 - `SlackBot.PeopleForceClient` – Retrieves users from PeopleForce by parsing a CSV file containing employee data
 
-The `SlackBot.PeopleForceClient` module parses a CSV file to retrieve users. It checks the email domain and excludes certain emails based on predefined rules.
-
-### Example usage of `SlackBot.PeopleForceClient`:
-
-```elixir
-file_path = "priv/peopleforce/exports-employee-2025-05-05.csv"
-users = SlackBot.PeopleForceClient.get_users(file_path)
-```
----
+The `SlackBot.PeopleForceClient` retrieves users by parsing a CSV file located at `priv/peopleforce/exports-employee-2025-05-05.csv`. The file contains employee data, which is processed to filter and return relevant users.
 
 ## 🚀 How to Run
 
