@@ -28,6 +28,7 @@ The `SlackBot.PeopleForceClient` module parses a CSV file to retrieve users. It 
 ```elixir
 file_path = "priv/peopleforce/exports-employee-2025-05-05.csv"
 users = SlackBot.PeopleForceClient.get_users(file_path)
+```
 ---
 
 ## 🚀 How to Run
